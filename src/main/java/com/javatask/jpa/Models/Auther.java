@@ -4,28 +4,24 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 // i use lombok when add project Data Containe=> Getter , Setter
 
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
-// @Table(name = "AUTHER_TBL")
 
-public class Auther {
+public class Auther extends BaseEntity{
 
-    @Id
-    @GeneratedValue
-    private Integer id;
     private String firstName;
     private String lastName;
     @Column(
