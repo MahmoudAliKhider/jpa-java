@@ -3,6 +3,7 @@ package com.javatask.jpa.Models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,4 +21,7 @@ public class Resource {
     private String name;
     private int Size;
     private String url;
+
+    @OneToOne
+    private Lecture lecture;
 }

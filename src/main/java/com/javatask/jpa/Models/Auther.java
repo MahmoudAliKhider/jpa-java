@@ -1,9 +1,12 @@
 package com.javatask.jpa.Models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,14 +35,8 @@ public class Auther {
     private String email;
     private int age;
 
-    // @Column(
-    //     updatable = false,
-    //     nullable = false
-    // )
-    // private LocalDateTime createAt;
-
-    // @Column(
-    //     insertable = false
-    // )
-    // private LocalDateTime lastModified;
+    @ManyToMany(
+        mappedBy = "authers"
+    )
+    private List<Course> courses;
 }
