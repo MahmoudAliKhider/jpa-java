@@ -1,15 +1,23 @@
 package com.javatask.jpa.Models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // i use lombok when add project Data Containe=> Getter , Setter
+
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
+@Builder
 @Entity
+// @Table(name = "AUTHER_TBL")
+
 public class Auther {
 
     @Id
@@ -17,7 +25,21 @@ public class Auther {
     private Integer id;
     private String firstName;
     private String lastName;
+    @Column(
+        unique = true,
+        nullable = false
+    )
     private String email;
     private int age;
 
+    // @Column(
+    //     updatable = false,
+    //     nullable = false
+    // )
+    // private LocalDateTime createAt;
+
+    // @Column(
+    //     insertable = false
+    // )
+    // private LocalDateTime lastModified;
 }
